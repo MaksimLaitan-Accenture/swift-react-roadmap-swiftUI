@@ -46,7 +46,6 @@ struct LoginView: View {
                                     .customField()
                             }
                         }
-                        .onChange(of: data) { _ in data.validate() }
                         
                         Spacer()
                         
@@ -61,9 +60,9 @@ struct LoginView: View {
                             .buttonStyle(.borderedProminent)
                             
                         }
-                        .disabled(!data.confirm)
-                        .foregroundColor(!data.confirm ? .gray : .white)
-                        .opacity(!data.confirm ? 0.75 : 1)
+                        .disabled(!data.isValid)
+                        .foregroundColor(!data.isValid ? .gray : .white)
+                        .opacity(!data.isValid ? 0.75 : 1)
                         
                         Spacer()
                     }

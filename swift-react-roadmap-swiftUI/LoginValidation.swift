@@ -12,10 +12,9 @@ struct LoginValidation: Equatable {
     var code: Int?
     var pass: String = ""
     var repeatPass: String = ""
-    var confirm = false
     
-    mutating func validate() {
-        confirm = (nameIsvalid() && codeIsValid() && passIsValid() && repeatPassIsValid()) ? true : false
+    var isValid: Bool {
+        nameIsvalid() && codeIsValid() && passIsValid() && repeatPassIsValid()
     }
     
     private func nameIsvalid() -> Bool {
